@@ -12,12 +12,12 @@
 
 <style scoped>
 .home {
-  position: absolute;         /* 让它脱离文档流占满整个页面 */
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;               /* 宽度 100% 的视口宽度 */
-  height: 100vh;              /* 高度 100% 的视口高度 */
-  background-image: url('@/assets/Eng.jpg'); /* 根据你实际图片路径调整 */
+  width: 100vw;
+  height: 100vh;
+  background-image: url('@/assets/Eng.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -7,7 +7,7 @@
 
     <main class="content" v-if="artifact">
       <img
-        :src="artifact.image"
+        :src="artifact.image || placeholder"
         alt="文物图片"
         class="artifact-image"
         @click="openImageViewer"
@@ -21,9 +21,9 @@
       正在加载文物信息...
     </div>
 
-    <!-- 大图查看器 -->
+
     <div v-if="showImageViewer" class="image-viewer" @click="closeImageViewer">
-      <img :src="artifact.image" alt="文物大图" class="large-image" />
+      <img :src="artifact.image || placeholder" alt="文物大图" class="large-image" />
     </div>
   </div>
 </template>
@@ -38,18 +38,20 @@ const router = useRouter()
 const artifact = ref(null)
 const showImageViewer = ref(false)
 
+const placeholder = 'https://via.placeholder.com/300x300?text=暂无图片'
+
 const allArtifacts = [
-  { id: 1, name: '青铜鼎', type: '青铜器', description: '青铜时代的器物', image: 'https://via.placeholder.com/300' },
-  { id: 2, name: '陶瓷碗', type: '陶瓷', description: '宋代瓷器', image: 'https://via.placeholder.com/300' },
-  { id: 3, name: '玉佩', type: '玉器', description: '古代佩饰', image: 'https://via.placeholder.com/300' },
-  { id: 4, name: '书法卷轴', type: '书法', description: '明代书法艺术', image: 'https://via.placeholder.com/300' },
-  { id: 5, name: '石雕佛像', type: '雕塑', description: '汉代石雕艺术', image: 'https://via.placeholder.com/300' },
-  { id: 6, name: '漆器盒', type: '漆器', description: '精美的漆器盒', image: 'https://via.placeholder.com/300' },
-  { id: 7, name: '青花瓷瓶', type: '陶瓷', description: '元代青花瓷', image: 'https://via.placeholder.com/300' },
+  { id: 1, name: '青铜鼎', type: '青铜器', description: '青铜时代的器物', image: '' },
+  { id: 2, name: '陶瓷碗', type: '陶瓷', description: '宋代瓷器', image: '' },
+  { id: 3, name: '玉佩', type: '玉器', description: '古代佩饰', image: '' },
+  { id: 4, name: '书法卷轴', type: '书法', description: '明代书法艺术', image: '' },
+  { id: 5, name: '石雕佛像', type: '雕塑', description: '汉代石雕艺术', image: '' },
+  { id: 6, name: '漆器盒', type: '漆器', description: '精美的漆器盒', image: '' },
+  { id: 7, name: '青花瓷瓶', type: '陶瓷', description: '元代青花瓷', image: '' }
 ]
 
 onMounted(() => {
-  const id = parseInt(route.params.id)
+  const id = parseInt(route.query.id)
   artifact.value = allArtifacts.find(item => item.id === id)
 })
 

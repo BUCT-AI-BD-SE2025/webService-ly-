@@ -62,18 +62,18 @@ export default {
 <style scoped>
 .page {
   background: #f5f5f5;
-  /* 让子元素居中 */
+
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* 让页面占满整个浏览器高度 */
+  height: 100vh;
 }
 
 .login-container {
   width: 300px;
   padding: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background: white; /* 保证有白底 */
+  background: white;
   border-radius: 8px;
 }
 

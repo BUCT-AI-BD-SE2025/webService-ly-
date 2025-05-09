@@ -11,6 +11,11 @@
         <h2>{{ user.name }}</h2>
         <p><strong>邮箱：</strong>{{ user.email }}</p>
         <p><strong>注册时间：</strong>{{ user.registerDate }}</p>
+
+        <div class="action-buttons">
+          <button @click="changePassword">修改密码</button>
+          <button @click="switchAccount">切换账号</button>
+        </div>
       </div>
     </main>
   </div>
@@ -22,17 +27,24 @@ import { ref } from 'vue'
 
 const router = useRouter()
 
-// 假设这是从后端拿到的用户数据
+
 const user = ref({
   name: '张三',
   email: 'zhangsan@example.com',
   registerDate: '2024-05-01',
-  avatar: 'https://via.placeholder.com/120'
+  avatar: 'http'
 })
-
 
 function goBack() {
   router.back()
+}
+
+function changePassword() {
+  router.push({ name: 'ChangePassword' })
+}
+
+function switchAccount() {
+  router.push({ name: 'login' })
 }
 </script>
 
@@ -81,7 +93,7 @@ function goBack() {
   padding: 30px;
   border-radius: 10px;
   text-align: center;
-  width: 300px;
+  width: 320px;
 }
 
 .avatar {
@@ -90,5 +102,26 @@ function goBack() {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
+}
+
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-buttons button {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-buttons button:hover {
+  background-color: #187bcd;
 }
 </style>

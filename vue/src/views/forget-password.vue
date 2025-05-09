@@ -56,7 +56,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* 垂直居中 */
+  height: 100vh;
   background-color: #f0f2f5;
 }
 
