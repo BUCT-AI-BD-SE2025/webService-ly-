@@ -6,7 +6,10 @@ import Register from '../views/Register.vue'
 import Browse from '../views/Browse.vue'
 import profile from '../views/profile.vue'
 import forgetPassword from '../views/forget-password.vue'
+
 import  ArtifactDetail from '../views/ArtifactDetail.vue'
+import  visualization from '../views/visualization.vue'
+ import ChangePassword from '../views/ChangePassword.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -18,9 +21,6 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: LoginView,
     },
     {
@@ -41,16 +41,26 @@ const router = createRouter({
     {
       path: '/profile',
       name: 'profile',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: profile,
     },
     {
-      path: '/artifact/:id',
+      path: '/artifact',
       name: 'ArtifactDetail',
-      component: ArtifactDetail
+      component: () => import('@/views/ArtifactDetail.vue')
     },
+
+    {
+      path: '/ChangePassword.vue',
+      name: 'ChangePassword',
+      component: ChangePassword
+    },
+    {
+      path:'/visualization.vue',
+      name: 'visualization',
+      component:visualization
+    }
+
+
   ],
 })
 

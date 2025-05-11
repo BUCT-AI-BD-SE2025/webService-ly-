@@ -21,9 +21,7 @@
 
         <p><strong>注册时间：</strong>{{ user.registerDate }}</p>
 
-        <button class="save-button" @click="saveChanges">保存修改</button>
-      </div>
-      <div class="action-buttons">
+        <button class="save-button" @click="saveChanges">修改信息</button>
         <button @click="changePassword">修改密码</button>
         <button @click="switchAccount">切换账号</button>
       </div>

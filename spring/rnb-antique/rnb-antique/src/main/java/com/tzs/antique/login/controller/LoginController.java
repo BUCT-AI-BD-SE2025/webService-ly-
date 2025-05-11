@@ -4,7 +4,6 @@ import com.tzs.antique.common.controller.BaseController;
 import com.tzs.antique.common.exception.GymException;
 import com.tzs.antique.common.reponse.GymResponse;
 import com.tzs.antique.common.utils.JWTUtil;
-import com.tzs.antique.common.utils.MD5Util;
 import com.tzs.antique.login.service.LoginService;
 import com.tzs.antique.system.entity.BaseUser;
 import com.tzs.antique.system.service.IBaseUserService;
