@@ -60,6 +60,7 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
     protected boolean executeLogin(ServletRequest request, ServletResponse response) {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String token = httpServletRequest.getHeader(TOKEN);
+        log.info("Received token from header: {}", token);
         JWTToken jwtToken = new JWTToken(AESUtils.decrypt(token));
         try {
             Subject subject = getSubject(request, response);

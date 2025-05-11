@@ -36,7 +36,7 @@ public class LoginController extends BaseController {
             throw new GymException("请正确输入用户名/密码");
         }
         username = StringUtils.lowerCase(username);
-        password = MD5Util.encrypt(username,password);
+        //password = MD5Util.encrypt(username,password);
         BaseUser user = iBaseUserService.getUserByUserName(username);
         if(user == null || !user.getPassWord().equals(password)){
             throw new GymException("用户名/密码错误");

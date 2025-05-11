@@ -1,10 +1,9 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
-// https://vite.dev/config/
+// ✅ 修改后的配置
 export default defineConfig({
   plugins: [
     vue(),
@@ -15,4 +14,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    proxy: {
+      // 所有以 /api 开头的请求都代理到后端服务
+      '/api': {
+        target: 'http://localhost:9099', // 你的 Spring Boot 后端服务地址
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, '/api') // 保留 /api 前缀
+      }
+    }
+  }
 })
